@@ -1,0 +1,16 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-controller="Home" asp-action="Validate">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" type="email" />
+        <label asp-for="password"></label>
+        <input asp-for="password" class="form-control" type="password" />
+        <br />
+        <button class="btn btn-primary">LOGIN</button>
+    </form>
+    
+</div>

@@ -1,0 +1,22 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "AddUser";
+}
+
+<h1>AddUser</h1>
+<div class="text-center">
+    <form asp-controller="Home" asp-action="NewUser" method="post">
+        <label asp-for="name"></label>
+        <input asp-for="name" class="form-control" type="text" />
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" type="email" />
+        <label asp-for="password"></label>
+        <input asp-for="password" class="form-control" type="password" />
+        <br />
+        <button class="btn btn-primary" type="submit">ADD</button>
+        <a class="btn btn-info" asp-controller="Admin" asp-action="Index">Back to dashboard</a>
+    </form>
+
+</div>
+
+
