@@ -4,4 +4,5 @@
 }
 
 <h1>Customer Dashboard</h1>
-<h2>Welcome @ViewBag.name</h2>
+<h2> Welcome @TempData["name"]</h2>
+<a class="btn btn-info" asp-controller="Home" asp-action="Index">LOGOUT</a>

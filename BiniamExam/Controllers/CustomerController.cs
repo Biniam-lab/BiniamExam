@@ -5,9 +5,9 @@ namespace BiniamExam.Controllers
 {
     public class CustomerController : Controller
     {
-        public IActionResult Index(string name)
+        public IActionResult Index()
         {
-            ViewBag.name = name;
+            
             return View();
         }
 

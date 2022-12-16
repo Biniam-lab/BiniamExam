@@ -40,8 +40,8 @@ namespace BiniamExam.Controllers
             {
                 if (eachUser.email == values.email && eachUser.password == values.password)
                 {
-                    string name = eachUser.name;
-                    return RedirectToAction("Index", "Customer", name);
+                    TempData["name"] = eachUser.name;
+                    return RedirectToAction("Index", "Customer");
                 }
             }
             return Content("Account not found");
