@@ -4,11 +4,12 @@
 }
 
 <div class="text-center">
+    <h2>Login Page</h2>
     <form asp-controller="Home" asp-action="Validate">
         <label asp-for="email"></label>
-        <input asp-for="email" class="form-control" type="email" />
+        <input asp-for="email" class="form-control" type="email" placeholder="email for admin is admin@email.com"/>
         <label asp-for="password"></label>
-        <input asp-for="password" class="form-control" type="password" />
+        <input asp-for="password" class="form-control" type="password" placeholder="password for admin is admin"/>
         <br />
         <button class="btn btn-primary">LOGIN</button>
     </form>

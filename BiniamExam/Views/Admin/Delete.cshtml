@@ -1,0 +1,17 @@
+﻿@model Customer
+
+@{
+    ViewData["Title"] = "Delete";
+
+}
+
+<h1>Delete User</h1>
+<div class="text-center">
+    <form asp-controller="Admin" asp-action="DeleteUser" method="post">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" type="email" />
+        <br />
+        <button class="btn btn-danger" type="submit">DELETE</button>
+    </form>
+
+</div>

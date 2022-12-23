@@ -10,11 +10,7 @@ namespace BiniamExam.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public static string adminEmail = "admin@email.com";
-        public static string adminPassword = "admin";
-        public static string customerEmail = "customer@email.com";
-        public static string customerPassword = "customer";
-        public static IList<Customer> customers = new List<Customer> { };
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -32,11 +28,16 @@ namespace BiniamExam.Controllers
             return View();
         }
 
-        public IActionResult Validate(Login values) {
-            if(values.email == adminEmail && values.password == adminPassword) { return RedirectToAction("Index", "Admin"); }
-            if (values.email == customerEmail && values.password == customerPassword) { return RedirectToAction("Index", "Customer");}
+        public IActionResult NoAccount()
+        {
+            return View();
+        }
 
-            foreach (var eachUser in customers)
+        public IActionResult Validate(Login values) {
+            if(values.email == UserData.adminEmail && values.password == UserData.adminPassword) { return RedirectToAction("Index", "Admin"); }
+            if (values.email == UserData.customerEmail && values.password == UserData.customerPassword) { return RedirectToAction("Index", "Customer");}
+
+            foreach (var eachUser in UserData.customers)
             {
                 if (eachUser.email == values.email && eachUser.password == values.password)
                 {
@@ -44,12 +45,12 @@ namespace BiniamExam.Controllers
                     return RedirectToAction("Index", "Customer");
                 }
             }
-            return Content("Account not found");
+            return RedirectToAction("NoAccount", "Home");
         }
 
         public IActionResult NewUser(Customer details)
         {
-            customers.Add(details);
+            UserData.customers.Add(details);
             return View();
         }
 
